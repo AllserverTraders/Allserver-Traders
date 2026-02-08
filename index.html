@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allserver Traders - Reliable Services for Everyday Needs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1f2937;
+            --light: #f8fafc;
+            --gray: #6b7280;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+        }
+        
+        header {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            min-width: 180px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            height: 120px;
+            background: linear-gradient(45deg, #dbeafe, #e0f2fe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .service-badge {
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .whatsapp-section {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: var(--radius);
+        }
+        
+        .whatsapp-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: white;
+            color: #25D366;
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin: 20px 0;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .navbar { flex-direction: column; gap: 20px; }
+            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-handshake"></i> Allserver Traders
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <a href="https://wa.me/27737252514" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Reliable, Convenient, and Practical Services for Everyday Needs</h1>
+            <p class="hero-subtitle">Fast cash-back, quality PPE, digital vouchers, custom footwear, electronics repair, and custom website design — all designed with efficiency and reliability in mind.</p>
+            <a href="#services" class="btn" style="background: var(--accent); font-size: 1.1rem; padding: 16px 40px;">
+                <i class="fas fa-bolt"></i> Explore Our Services
+            </a>
+            
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <div class="stat-number">⅓</div>
+                    <div>Decade of Excellence</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">500+</div>
+                    <div>Happy Customers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">6</div>
+                    <div>Core Services</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; color: var(--gray);">
+                We offer a range of professional services designed to make life easier. Each service is delivered with transparency, quality, and reliability.
+            </p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Cash Back Services</h3>
+                        <p>Withdraw cash directly from your card quickly and securely. Fixed fees are applied for complete transparency and convenience.</p>
+                        <a href="https://wa.me/27737252514?text=Hello!%20I%20need%20cash%20back%20services" class="btn" style="margin-top: 15px; width: 100%;">
+                            Get Cash Back Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">PPE Supply</h3>
+                        <p>High-quality personal protective equipment, including gloves, masks, safety footwear, and reflective wear. Reliable, available, and ready when you need it.</p>
+                        <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20to%20order%20PPE%20equipment" class="btn" style="margin-top: 15px; width: 100%;">
+                            Shop PPE
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sim-card"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Airtime & Digital Vouchers</h3>
+                        <p>Buy airtime, data bundles, electricity, and digital vouchers across major networks. Quick, convenient, and easy-to-use.</p>
+                        <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20to%20buy%20airtime/vouchers" class="btn" style="margin-top: 15px; width: 100%;">
+                            Buy Vouchers
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Custom Shoe Sewing</h3>
+                        <p>Hand-sewn custom footwear crafted to your specifications. Durable, comfortable, and designed with attention to quality craftsmanship.</p>
+                        <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20custom%20shoes%20made" class="btn" style="margin-top: 15px; width: 100%;">
+                            Order Custom Shoes
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <span class="service-badge">Coming Soon</span>
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Electronics Repair</h3>
+                        <p>Diagnostic-based repair services for personal and small electronic devices. Efficient, cost-effective, and reliable solutions for your electronics.</p>
+                        <a href="https://wa.me/27737252514?text=Hello!%20I%20have%20questions%20about%20electronics%20repair" class="btn" style="margin-top: 15px; width: 100%; background: var(--gray);">
+                            Coming Soon
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 6: WEBSITE DESIGN -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Custom Website Design</h3>
+                        <p>Professional websites tailored to your needs. We create responsive, modern websites that help grow your business online.</p>
+                        <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20a%20website%20designed" class="btn" style="margin-top: 15px; width: 100%;">
+                            Get a Website Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHATSAPP SECTION -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="whatsapp-section">
+                <h2>Get in Touch or Place Your Order</h2>
+                <p>Contact us directly on WhatsApp for fastest response</p>
+                <div class="whatsapp-number">
+                    <i class="fab fa-whatsapp"></i> 0737 252 514
+                </div>
+                <a href="https://wa.me/27737252514?text=Hello%20Allserver%20Traders!%20I%20want%20to%20inquire%20about%20your%20services" class="btn" style="background: white; color: #25D366; font-size: 1.1rem; padding: 16px 40px;">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp Now
+                </a>
+                <div style="margin-top: 30px;">
+                    <p><i class="fas fa-clock"></i> Operating Hours: 6:00 AM - 10:00 PM Daily</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Campus-based services available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Allserver Traders</h3>
+                    <p>Founded in 2024 by Hoss Induction. Serving customers with excellence for ⅓ of a decade.</p>
+                    <div style="margin-top: 20px;">
+                        <a href="https://wa.me/27737252514" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 12px;"><a href="index.html" style="color: #d1d5db; text-decoration: none;"><i class="fas fa-home"></i> Home</a></li>
+                        <li style="margin-bottom: 12px;"><a href="about.html" style="color: #d1d5db; text-decoration: none;"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#services" style="color: #d1d5db; text-decoration: none;"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                        <li style="margin-bottom: 12px;"><a href="#contact" style="color: #d1d5db; text-decoration: none;"><i class="fas fa-phone"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Contact Info</h3>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: 0737 252 514</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Campus-based services</p>
+                    <p><i class="fas fa-clock"></i> 6:00 AM - 10:00 PM Daily</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Allserver Traders. Serving with excellence for ⅓ of a decade.</p>
+                <p style="margin-top: 10px;">Website: https://allservertraders.github.io/Allserver-Traders/</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/27737252514?text=Hello%20Allserver%20Traders!%20I%20saw%20your%20website%20and%20want%20to%20order%20services." 
+       style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); z-index: 1000; text-decoration: none; transition: all 0.3s;"
+       id="whatsappFloat">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if(this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // WhatsApp float button hover effect
+        const whatsappFloat = document.getElementById('whatsappFloat');
+        whatsappFloat.addEventListener('mouseenter', () => {
+            whatsappFloat.style.transform = 'scale(1.1)';
+        });
+        whatsappFloat.addEventListener('mouseleave', () => {
+            whatsappFloat.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html>

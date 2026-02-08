@@ -227,6 +227,25 @@
             margin-bottom: 10px;
         }
         
+        .service-features {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .service-features li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .service-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
         .whatsapp-section {
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
@@ -325,9 +344,9 @@
     <section class="hero">
         <div class="container">
             <h1>Reliable, Convenient, and Practical Services for Everyday Needs</h1>
-            <p class="hero-subtitle">Fast cash-back, quality PPE, digital vouchers, custom footwear, electronics repair, and custom website design — all designed with efficiency and reliability in mind.</p>
+            <p class="hero-subtitle">Fast cash-back, quality PPE, digital vouchers, custom footwear, electronics repair, basic electronics, LED decor, and custom website design — all designed with efficiency and reliability in mind.</p>
             <a href="#services" class="btn" style="background: var(--accent); font-size: 1.1rem; padding: 16px 40px;">
-                <i class="fas fa-bolt"></i> Explore Our Services
+                <i class="fas fa-bolt"></i> Explore Our 7 Services
             </a>
             
             <div class="hero-stats">
@@ -340,7 +359,7 @@
                     <div>Happy Customers</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-number">6</div>
+                    <div class="stat-number">7</div>
                     <div>Core Services</div>
                 </div>
             </div>
@@ -350,9 +369,9 @@
     <!-- SERVICES SECTION -->
     <section class="section" id="services">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
+            <h2 class="section-title">Our 7 Services</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; color: var(--gray);">
-                We offer a range of professional services designed to make life easier. Each service is delivered with transparency, quality, and reliability.
+                We offer a comprehensive range of professional services designed to make life easier. Each service is delivered with transparency, quality, and reliability.
             </p>
             
             <div class="services-grid">
@@ -427,7 +446,7 @@
                     </div>
                 </div>
                 
-                <!-- Service 6: WEBSITE DESIGN -->
+                <!-- Service 6 -->
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-code"></i>
@@ -437,6 +456,27 @@
                         <p>Professional websites tailored to your needs. We create responsive, modern websites that help grow your business online.</p>
                         <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20a%20website%20designed" class="btn" style="margin-top: 15px; width: 100%;">
                             Get a Website Quote
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 7: BASIC ELECTRONICS & LED -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Basic Electronics & LED Decor</h3>
+                        <p>Quality electronics and room decor to enhance your space and daily life.</p>
+                        <ul class="service-features">
+                            <li>Extension cords (various sizes)</li>
+                            <li>Laptop chargers & adapters</li>
+                            <li>Phone charger cables</li>
+                            <li>Room decorating LED lights</li>
+                            <li>Basic electronic accessories</li>
+                        </ul>
+                        <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20to%20buy%20electronics%20or%20LED%20lights" class="btn" style="margin-top: 15px; width: 100%; background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                            <i class="fas fa-shopping-cart"></i> Shop Electronics
                         </a>
                     </div>
                 </div>
@@ -493,6 +533,7 @@
                     <p><i class="fab fa-whatsapp"></i> WhatsApp: 0737 252 514</p>
                     <p><i class="fas fa-map-marker-alt"></i> Campus-based services</p>
                     <p><i class="fas fa-clock"></i> 6:00 AM - 10:00 PM Daily</p>
+                    <p><i class="fas fa-box"></i> 7 Comprehensive Services</p>
                 </div>
             </div>
             

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Allserver Traders</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .about-hero {
+            background: white;
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            color: #1a73e8;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: #0d47a1;
+            margin: 2rem 0 1rem;
+            border-bottom: 2px solid #e8f0fe;
+            padding-bottom: 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Team Section */
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .member-img {
+            width: 120px;
+            height: 120px;
+            background: #e8f0fe;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #1a73e8;
+        }
+        
+        /* Values */
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #1a73e8;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Footer */
+        footer {
+            background: #202124;
+            color: #e8eaed;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-links {
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: #8ab4f8;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        
+        /* Back to Home Button */
+        .back-home {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 1.5rem;
+            background: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .back-home:hover {
+            background: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Allserver Traders</a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html" style="opacity: 0.8;">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="about-hero">
+            <h1>About Allserver Traders</h1>
+            <p>Welcome to Allserver Traders, your trusted partner in digital solutions and server management. Founded in 2023, we specialize in providing reliable, scalable, and secure server solutions for businesses of all sizes.</p>
+            
+            <h2>Our Mission</h2>
+            <p>To empower businesses with robust server infrastructure and digital tools that drive growth, enhance productivity, and ensure seamless operations in an increasingly digital world.</p>
+            
+            <h2>Our Story</h2>
+            <p>What began as a small team of server enthusiasts has grown into a comprehensive service provider supporting over 500+ clients worldwide. Our journey started with a simple goal: make server management accessible and hassle-free for everyone.</p>
+            
+            <h2>Why Choose Us?</h2>
+            <div class="values">
+                <div class="value-card">
+                    <h3>⚡ 99.9% Uptime</h3>
+                    <p>Reliable servers with maximum availability</p>
+                </div>
+                <div class="value-card">
+                    <h3>🛡️ Secure</h3>
+                    <p>Enterprise-grade security protocols</p>
+                </div>
+                <div class="value-card">
+                    <h3>📈 Scalable</h3>
+                    <p>Grow with solutions that expand with your needs</p>
+                </div>
+                <div class="value-card">
+                    <h3>👨‍💻 24/7 Support</h3>
+                    <p>Round-the-clock expert assistance</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Meet Our Team</h2>
+        <div class="team">
+            <div class="team-member">
+                <div class="member-img">👨‍💼</div>
+                <h3>Alex Johnson</h3>
+                <p>Founder & CEO</p>
+                <p>15+ years in server architecture</p>
+            </div>
+            <div class="team-member">
+                <div class="member-img">👩‍💻</div>
+                <h3>Sarah Chen</h3>
+                <p>Head of Security</p>
+                <p>Cybersecurity expert</p>
+            </div>
+            <div class="team-member">
+                <div class="member-img">👨‍🔧</div>
+                <h3>Mike Rodriguez</h3>
+                <p>Server Operations</p>
+                <p>Infrastructure specialist</p>
+            </div>
+            <div class="team-member">
+                <div class="member-img">👩‍💼</div>
+                <h3>Priya Sharma</h3>
+                <p>Client Success</p>
+                <p>Your dedicated support contact</p>
+            </div>
+        </div>
+        
+        <!-- Back to Home Link -->
+        <a href="index.html" class="back-home">← Back to Home</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Allserver Traders. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <p>Contact: info@allservertraders.com | +1 (555) 123-4567</p>
+    </footer>
+</body>
+</html>

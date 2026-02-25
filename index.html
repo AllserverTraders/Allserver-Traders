@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllServe Traders · student hub</title>
+<title>AllServe Traders – Student Services Hub</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   * {
@@ -23,7 +23,7 @@
     --bg-dark: #020617;
     --text-dark: #e2e8f0;
     --card-light: #ffffff;
-    --card-dark: #0f172a;       /* dark card exactly like reference */
+    --card-dark: #0f172a;
     --border-light: #cbd5e1;
     --icon-bg-light: linear-gradient(135deg, #dcfce7, #bbf7d0);
     --radius: 14px;
@@ -49,7 +49,7 @@
     padding: 0 20px;
   }
 
-  /* urgency bar – keep bright, but adapt text in dark */
+  /* urgency bar */
   .urgency-bar {
     background: linear-gradient(90deg, #16a34a, #22c55e);
     color: white;
@@ -59,7 +59,6 @@
     letter-spacing: 0.3px;
   }
   body.dark .urgency-bar {
-    /* keep original green gradient — still readable, but we add slight opacity if needed */
     background: linear-gradient(90deg, #0f7650, #1e8b4c);
     color: #ffffff;
   }
@@ -74,7 +73,7 @@
     transition: background 0.3s;
   }
   body.dark header {
-    background: var(--card-dark);        /* dark header, matches dark mode card */
+    background: var(--card-dark);
   }
 
   .navbar {
@@ -82,6 +81,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 16px 0;
+    flex-wrap: wrap;
+    gap: 15px;
   }
 
   .logo {
@@ -100,13 +101,13 @@
     border-radius: 10px;
   }
   body.dark .logo i {
-    /* keep icon bright even in dark (intentional accent) */
     background: linear-gradient(135deg, #2bde73, #1fad4a);
   }
 
   .nav-links {
     display: flex;
     gap: 28px;
+    flex-wrap: wrap;
   }
   .nav-links a {
     text-decoration: none;
@@ -137,7 +138,6 @@
     text-align: center;
   }
   body.dark .hero {
-    /* dark mode: deep navy / teal gradient, all text remains light */
     background: linear-gradient(145deg, #0b1a2a, #0b2f1f);
     color: #e0f2e9;
   }
@@ -161,7 +161,7 @@
     box-shadow: var(--shadow);
   }
   body.dark .stat-box {
-    background: #132337;      /* dark card, matches reference feel */
+    background: #132337;
     color: #e2e8f0;
     box-shadow: 0 10px 25px -5px rgba(0, 150, 100, 0.2);
   }
@@ -171,7 +171,7 @@
     color: var(--secondary);
   }
   body.dark .stat-number {
-    color: #4ade80;            /* lighter green in dark mode */
+    color: #4ade80;
   }
 
   /* section */
@@ -182,7 +182,7 @@
     margin-bottom: 55px;
   }
 
-  /* services grid — 7 cards */
+  /* services grid */
   .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -196,7 +196,7 @@
     overflow: hidden;
   }
   body.dark .service-card {
-    background: var(--card-dark);      /* dark mode card background: #0f172a (matches reference) */
+    background: var(--card-dark);
     box-shadow: 0 12px 28px rgba(0, 30, 30, 0.6);
   }
   .service-card:hover { transform: translateY(-7px); }
@@ -211,8 +211,8 @@
     background: var(--icon-bg-light);
   }
   body.dark .service-icon {
-    background: #1c2f3f;          /* dark mode icon background – deep muted */
-    color: #86efac;                /* light green for icons */
+    background: #1c2f3f;
+    color: #86efac;
   }
 
   .service-content { padding: 24px 18px; }
@@ -229,7 +229,7 @@
     text-align: center;
   }
   body.dark .calculator-box {
-    background: #0f172a;           /* exactly dark card same as reference */
+    background: #0f172a;
     color: #e2e8f0;
     border: 1px solid #1e293b;
   }
@@ -319,54 +319,79 @@
     z-index: 999;
   }
 
-  /* popup */
-  .lead-popup {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.3s;
-    z-index: 2000;
-  }
-  .lead-popup.show { visibility: visible; opacity: 1; }
-  .lead-box {
-    background: white;
-    padding: 35px;
-    border-radius: 24px;
-    max-width: 420px;
-    text-align: center;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-  }
-  body.dark .lead-box {
+  /* footer with rights reserved */
+  .footer {
     background: #0f172a;
-    color: white;
-    border: 1px solid #334155;
+    color: #cbd5e1;
+    padding: 35px 0 25px;
+    text-align: center;
+    margin-top: 40px;
   }
-  .lead-box input {
-    width: 100%;
-    padding: 14px;
-    margin: 15px 0;
-    border-radius: 12px;
-    border: 1px solid #cbd5e1;
+  body.dark .footer {
+    background: #030712;
+    border-top: 1px solid #1e293b;
   }
-  body.dark .lead-box input {
-    background: #0b1120;
-    border-color: #334155;
-    color: white;
+  .footer p {
+    margin: 8px 0;
+    font-size: 1rem;
+  }
+  .footer .rights {
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: #94a3b8;
+  }
+  .footer .year {
+    font-weight: 600;
+    color: #22c55e;
   }
 
-  /* extra polish */
+  /* extra dark mode adjustments */
   body.dark .btn:not(.btn-whatsapp) {
     background: #1e4b4a;
     color: white;
   }
   body.dark .btn-whatsapp {
-    background: #128C7E;   /* darker whatsapp but still visible */
+    background: #128C7E;
   }
+
+  /* contact section (now working) */
+  #contact {
+    scroll-margin-top: 80px;
+    background: #f1f5f9;
+    padding: 60px 0;
+  }
+  body.dark #contact {
+    background: #0b1a2a;
+  }
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+  }
+  .contact-info a {
+    color: var(--primary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    box-shadow: var(--shadow);
+    transition: 0.2s;
+  }
+  body.dark .contact-info a {
+    background: #1e293b;
+    color: #86efac;
+  }
+  .contact-info a:hover {
+    transform: scale(1.05);
+    background: var(--primary);
+    color: white;
+  }
+  .contact-info i { font-size: 1.5rem; }
 </style>
 </head>
 <body>
@@ -391,7 +416,7 @@
   </div>
 </header>
 
-<!-- HERO with exactly the mentioned line: "Reliable PPE, Electronics & Cash Services for Students" -->
+<!-- HERO with required text -->
 <section class="hero">
   <div class="container">
     <h1>Reliable PPE, Electronics & Cash Services for Students</h1>
@@ -404,13 +429,13 @@
   </div>
 </section>
 
-<!-- SERVICES (7 cards, exactly as you listed, including your missing ones) -->
+<!-- SERVICES (7 cards exactly) -->
 <section class="section" id="services">
   <div class="container">
     <h2 class="section-title">Our Services</h2>
     <div class="services-grid">
 
-      <!-- 1. Cash back & loans -->
+      <!-- 1 Cash back & loans -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-money-bill-wave"></i></div>
         <div class="service-content">
@@ -419,7 +444,7 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20need%20cash%20services" class="btn" style="width:100%;">Get Cash</a>
         </div>
       </div>
-      <!-- 2. PPE Supply -->
+      <!-- 2 PPE Supply -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
         <div class="service-content">
@@ -428,7 +453,7 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20PPE" class="btn" style="width:100%;">Shop PPE</a>
         </div>
       </div>
-      <!-- 3. Airtime & Vouchers -->
+      <!-- 3 Airtime & Vouchers -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-sim-card"></i></div>
         <div class="service-content">
@@ -437,7 +462,7 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20airtime" class="btn" style="width:100%;">Buy Now</a>
         </div>
       </div>
-      <!-- 4. Custom Shoe Sewing (was missing) -->
+      <!-- 4 Custom Shoe Sewing -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-shoe-prints"></i></div>
         <div class="service-content">
@@ -446,7 +471,7 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20custom%20shoes" class="btn" style="width:100%;">Order</a>
         </div>
       </div>
-      <!-- 5. Electronics Repair -->
+      <!-- 5 Electronics Repair -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-tools"></i></div>
         <div class="service-content">
@@ -455,7 +480,7 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20need%20repairs" class="btn" style="width:100%;">Request Repair</a>
         </div>
       </div>
-      <!-- 6. Website Design -->
+      <!-- 6 Website Design -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-code"></i></div>
         <div class="service-content">
@@ -464,7 +489,7 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20need%20a%20website" class="btn" style="width:100%;">Get Quote</a>
         </div>
       </div>
-      <!-- 7. Basic Electronics & LED (includes chargers, cables) -->
+      <!-- 7 Basic Electronics & LED -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
         <div class="service-content">
@@ -473,6 +498,18 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20electronics" class="btn" style="width:100%;">Shop</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION (now fixed and working) -->
+<section class="section" id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact us — we reply fast</h2>
+    <div class="contact-info">
+      <a href="https://wa.me/27737252514"><i class="fab fa-whatsapp"></i> WhatsApp direct</a>
+      <a href="mailto:serve@allserve.co.za"><i class="far fa-envelope"></i> serve@allserve.co.za</a>
+      <a href="#"><i class="fas fa-map-pin"></i> Campus Junction</a>
     </div>
   </div>
 </section>
@@ -496,21 +533,19 @@
   </div>
 </section>
 
-<!-- floating buttons -->
+<!-- FOOTER with ALL RIGHTS RESERVED and 2026 -->
+<footer class="footer">
+  <div class="container">
+    <p><i class="far fa-copyright"></i> <span class="year">2026</span> AllServe Traders — Student Services Hub</p>
+    <p class="rights">All rights reserved. Reliability | Electronics | Cash for students.</p>
+  </div>
+</footer>
+
+<!-- floating buttons (no popup) -->
 <div class="dark-toggle" onclick="toggleDark()" id="darkToggle">
   <i class="fas fa-moon"></i>
 </div>
 <a class="whatsapp-float" href="https://wa.me/27737252514"><i class="fab fa-whatsapp"></i></a>
-
-<!-- popup -->
-<div class="lead-popup" id="leadPopup">
-  <div class="lead-box">
-    <h3>🎓 Student Priority Access</h3>
-    <p>Enter your name to get faster service.</p>
-    <input type="text" id="leadName" placeholder="Your name">
-    <a class="btn btn-whatsapp" onclick="sendLead()"><i class="fab fa-whatsapp"></i> Continue</a>
-  </div>
-</div>
 
 <script>
   function toggleDark() {
@@ -545,15 +580,8 @@
       `<a class="btn btn-whatsapp" href="https://wa.me/27737252514?text=${msg}"><i class="fab fa-whatsapp"></i> Proceed on WhatsApp</a>`;
   }
 
-  setTimeout(() => {
-    document.getElementById("leadPopup").classList.add("show");
-  }, 12000);
-
-  function sendLead() {
-    let name = document.getElementById("leadName").value.trim() || "Student";
-    let msg = encodeURIComponent(`Hello AllServe Traders, my name is ${name} and I want priority assistance.`);
-    window.location.href = `https://wa.me/27737252514?text=${msg}`;
-  }
+  // no popup — removed entirely
 </script>
+
 </body>
 </html>

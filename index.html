@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllServe Traders – Student Services Hub</title>
+<title>AllServe Traders – student hub</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   * {
@@ -15,7 +15,6 @@
 
   :root {
     --primary: #0f766e;
-    --primary-light: #14b8a6;
     --secondary: #16a34a;
     --accent: #22c55e;
     --bg-light: #f8fafc;
@@ -250,6 +249,34 @@
     color: white;
   }
 
+  /* rate info strip – shows % clearly */
+  .rate-info {
+    display: flex;
+    justify-content: space-around;
+    background: #ecfdf5;
+    padding: 14px 8px;
+    border-radius: 40px;
+    margin: 10px 0 18px 0;
+    font-weight: 600;
+    border: 1px solid #bbf7d0;
+  }
+  body.dark .rate-info {
+    background: #0b2f1f;
+    border-color: #166534;
+    color: #dcfce7;
+  }
+  .rate-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rate-badge i {
+    color: #16a34a;
+    font-size: 1.2rem;
+  }
+  .small-loan { color: #b45309; }   /* <600 */
+  .large-loan { color: #0f766e; }   /* ≥600 */
+
   .result-box {
     margin-top: 15px;
     font-size: 1.4rem;
@@ -354,7 +381,7 @@
     background: #128C7E;
   }
 
-  /* contact section (now working) */
+  /* contact section – only WhatsApp + Doornfontein */
   #contact {
     scroll-margin-top: 80px;
     background: #f1f5f9;
@@ -370,19 +397,20 @@
     flex-wrap: wrap;
     font-size: 1.2rem;
   }
-  .contact-info a {
+  .contact-info a, .contact-info .location-badge {
     color: var(--primary);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     background: white;
-    padding: 12px 28px;
-    border-radius: 50px;
+    padding: 14px 32px;
+    border-radius: 60px;
     box-shadow: var(--shadow);
     transition: 0.2s;
+    font-weight: 500;
   }
-  body.dark .contact-info a {
+  body.dark .contact-info a, body.dark .contact-info .location-badge {
     background: #1e293b;
     color: #86efac;
   }
@@ -390,6 +418,14 @@
     transform: scale(1.05);
     background: var(--primary);
     color: white;
+  }
+  .location-badge {
+    cursor: default;
+    background: #e2e8f0;
+  }
+  body.dark .location-badge {
+    background: #0f2a3b;
+    color: #bbf7d0;
   }
   .contact-info i { font-size: 1.5rem; }
 </style>
@@ -416,7 +452,7 @@
   </div>
 </header>
 
-<!-- HERO with required text -->
+<!-- HERO -->
 <section class="hero">
   <div class="container">
     <h1>Reliable PPE, Electronics & Cash Services for Students</h1>
@@ -429,12 +465,11 @@
   </div>
 </section>
 
-<!-- SERVICES (7 cards exactly) -->
+<!-- SERVICES (7 cards) -->
 <section class="section" id="services">
   <div class="container">
     <h2 class="section-title">Our Services</h2>
     <div class="services-grid">
-
       <!-- 1 Cash back & loans -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-money-bill-wave"></i></div>
@@ -502,28 +537,36 @@
   </div>
 </section>
 
-<!-- CONTACT SECTION (now fixed and working) -->
+<!-- CONTACT SECTION – WhatsApp + Doornfontein -->
 <section class="section" id="contact">
   <div class="container">
-    <h2 class="section-title">Contact us — we reply fast</h2>
+    <h2 class="section-title">Visit or WhatsApp — we're in Doornfontein</h2>
     <div class="contact-info">
-      <a href="https://wa.me/27737252514"><i class="fab fa-whatsapp"></i> WhatsApp direct</a>
-      <a href="mailto:serve@allserve.co.za"><i class="far fa-envelope"></i> serve@allserve.co.za</a>
-      <a href="#"><i class="fas fa-map-pin"></i> Campus Junction</a>
+      <a href="https://wa.me/27737252514"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+      <span class="location-badge"><i class="fas fa-map-pin"></i> Johannesburg, Doornfontein</span>
     </div>
   </div>
 </section>
 
-<!-- CALCULATOR -->
+<!-- CALCULATOR with explicit rate display -->
 <section class="section">
   <div class="container">
     <h2 class="section-title">Loan Repayment Calculator</h2>
     <div class="calculator-box">
-      <input type="number" id="loanAmount" placeholder="Enter amount in R">
+      
+      <!-- clear rate info block: shows both thresholds with % -->
+      <div class="rate-info">
+        <span class="rate-badge"><i class="fas fa-tag"></i> &lt; R600  <strong class="small-loan">+35%</strong></span>
+        <span class="rate-badge"><i class="fas fa-tag"></i> ≥ R600  <strong class="large-loan">+29%</strong></span>
+      </div>
+
+      <input type="number" id="loanAmount" placeholder="Enter amount in R (e.g. 450 or 1200)">
       <button class="btn" onclick="calcLoan()">Calculate repayment (14 days)</button>
+      
       <div id="result" class="result-box"></div>
       <div id="approvalMeter" class="approval-meter"></div>
       <div id="whatsappBtn" style="margin-top:20px;"></div>
+      
       <div class="trust-strip">
         <span>✔ Student Friendly</span>
         <span>✔ Transparent Fees</span>
@@ -533,7 +576,7 @@
   </div>
 </section>
 
-<!-- FOOTER with ALL RIGHTS RESERVED and 2026 -->
+<!-- FOOTER with rights reserved and 2026 -->
 <footer class="footer">
   <div class="container">
     <p><i class="far fa-copyright"></i> <span class="year">2026</span> AllServe Traders — Student Services Hub</p>
@@ -541,7 +584,7 @@
   </div>
 </footer>
 
-<!-- floating buttons (no popup) -->
+<!-- floating buttons -->
 <div class="dark-toggle" onclick="toggleDark()" id="darkToggle">
   <i class="fas fa-moon"></i>
 </div>
@@ -566,21 +609,33 @@
       document.getElementById("result").innerHTML = "⚠️ Enter a valid amount";
       return;
     }
-    let rate = amount < 600 ? 0.35 : 0.29;
+    
+    // Determine rate based on amount (<600 = 35%, >=600 = 29%)
+    let rate;
+    if (amount < 600) {
+      rate = 0.35;   // 35%
+    } else {
+      rate = 0.29;   // 29%
+    }
+    
     let repayment = amount + (amount * rate);
-    document.getElementById("result").innerHTML = "You will pay back: R" + repayment.toFixed(2);
+    
+    // Show result with applied rate
+    document.getElementById("result").innerHTML = 
+      `Repayment (${rate*100}% interest): <strong>R${repayment.toFixed(2)}</strong>`;
 
+    // Approval logic unchanged
     let approval = "High";
     if (amount > 1500) approval = "Medium";
     if (amount > 3000) approval = "Manual Review";
     document.getElementById("approvalMeter").innerHTML = "Approval likelihood: " + approval;
 
-    let msg = encodeURIComponent(`Hello AllServe Traders, I want to borrow R${amount}. I will repay R${repayment.toFixed(2)} in 14 days.`);
+    let msg = encodeURIComponent(
+      `Hello AllServe Traders, I want to borrow R${amount} (${rate*100}% rate). I will repay R${repayment.toFixed(2)} in 14 days.`
+    );
     document.getElementById("whatsappBtn").innerHTML =
       `<a class="btn btn-whatsapp" href="https://wa.me/27737252514?text=${msg}"><i class="fab fa-whatsapp"></i> Proceed on WhatsApp</a>`;
   }
-
-  // no popup — removed entirely
 </script>
 
 </body>

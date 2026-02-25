@@ -3,211 +3,270 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllServe Traders | Student Services Hub</title>
+<title>AllServe Traders - Student Services Hub</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 :root{
- --primary:#0f766e;
- --secondary:#16a34a;
- --accent:#22c55e;
- --dark:#020617;
- --light:#f8fafc;
- --card:#ffffff;
- --radius:18px;
- --shadow:0 18px 45px rgba(0,0,0,0.08);
+--primary:#0f766e;
+--secondary:#16a34a;
+--accent:#22c55e;
+--dark:#020617;
+--light:#f8fafc;
+--gray:#475569;
+--radius:14px;
+--shadow:0 15px 35px rgba(0,0,0,.08);
+--transition:.3s ease;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui;}
-body{background:var(--light);color:var(--dark);line-height:1.6;}
+
+body{background:var(--light);color:#0f172a;line-height:1.6;transition:.3s;}
+
+body.dark{background:#020617;color:#e5e7eb;}
+
 .container{max-width:1200px;margin:auto;padding:0 20px;}
-.section{padding:100px 0;}
 
-header{
- background:white;
- position:sticky;
- top:0;
- z-index:1000;
- box-shadow:0 6px 25px rgba(0,0,0,0.05);
+.urgency-bar{
+background:linear-gradient(90deg,#16a34a,#22c55e);
+color:white;
+text-align:center;
+padding:10px;
+font-weight:700;
 }
-.navbar{
- display:flex;
- justify-content:space-between;
- align-items:center;
- padding:18px 0;
-}
+
+/* HEADER */
+header{background:white;box-shadow:var(--shadow);position:sticky;top:0;z-index:1000;}
+body.dark header{background:#0f172a;}
+
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:18px 0;}
+
 .logo{
- font-weight:900;
- font-size:1.6rem;
- color:var(--primary);
- display:flex;
- align-items:center;
- gap:10px;
- text-decoration:none;
-}
-.logo i{
- background:linear-gradient(135deg,#22c55e,#16a34a);
- color:white;
- padding:10px;
- border-radius:14px;
+font-weight:800;
+font-size:1.6rem;
+color:var(--primary);
+display:flex;
+gap:10px;
+align-items:center;
+text-decoration:none;
 }
 
-.nav-links{display:flex;gap:28px;}
-.nav-links a{text-decoration:none;color:var(--dark);font-weight:600;}
+.logo i{
+background:linear-gradient(135deg,#22c55e,#16a34a);
+color:white;
+padding:10px;
+border-radius:10px;
+}
+
+.nav-links{display:flex;gap:25px;}
+.nav-links a{text-decoration:none;color:inherit;font-weight:500;}
 
 .btn{
- background:var(--primary);
- color:white;
- padding:13px 28px;
- border-radius:999px;
- text-decoration:none;
- font-weight:700;
- transition:.25s;
- display:inline-block;
+padding:13px 26px;
+border:none;
+border-radius:var(--radius);
+background:var(--primary);
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:var(--transition);
+text-decoration:none;
+display:inline-block;
 }
-.btn:hover{transform:translateY(-2px);}
+.btn:hover{transform:translateY(-3px);}
+
 .btn-whatsapp{background:#25D366;}
 
+/* HERO */
 .hero{
- background:linear-gradient(135deg,#ecfeff,#dcfce7);
- text-align:center;
- padding:130px 0 110px;
-}
-.hero h1{font-size:3.1rem;margin-bottom:20px;}
-.hero p{max-width:720px;margin:auto;color:#475569;font-size:1.15rem;}
-
-.badge{
- display:inline-block;
- background:#dcfce7;
- color:#166534;
- padding:8px 18px;
- border-radius:999px;
- font-weight:700;
- margin-bottom:25px;
+background:linear-gradient(135deg,#ecfeff,#dcfce7);
+padding:100px 0;
+text-align:center;
 }
 
-.stats{
- display:flex;
- justify-content:center;
- gap:40px;
- margin-top:55px;
- flex-wrap:wrap;
+.hero h1{font-size:2.8rem;margin-bottom:20px;}
+
+.hero-stats{
+display:flex;
+justify-content:center;
+gap:35px;
+margin-top:40px;
+flex-wrap:wrap;
 }
-.stat{
- background:white;
- padding:28px;
- border-radius:var(--radius);
- box-shadow:var(--shadow);
- min-width:180px;
+
+.stat-box{
+background:white;
+padding:22px;
+border-radius:var(--radius);
+box-shadow:var(--shadow);
 }
+
 .stat-number{
- font-size:2.4rem;
- font-weight:900;
- color:var(--secondary);
+font-size:2.3rem;
+font-weight:800;
+color:var(--secondary);
 }
 
-.section-title{
- text-align:center;
- font-size:2.4rem;
- margin-bottom:55px;
+/* SERVICES */
+.section{padding:80px 0;}
+.section-title{text-align:center;font-size:2.3rem;margin-bottom:50px;}
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
 }
 
-.services{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:28px;
+.service-card{
+background:white;
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+transition:var(--transition);
+overflow:hidden;
+}
+body.dark .service-card{background:#0f172a;}
+
+.service-card:hover{transform:translateY(-10px);}
+
+.service-icon{
+height:110px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2.5rem;
+color:var(--secondary);
+background:linear-gradient(135deg,#dcfce7,#bbf7d0);
 }
 
-.card{
- background:var(--card);
- border-radius:var(--radius);
- padding:28px;
- box-shadow:var(--shadow);
- transition:.35s;
- position:relative;
- overflow:hidden;
+.service-content{padding:24px;}
+
+/* CALCULATOR */
+.calculator-box{
+background:white;
+max-width:600px;
+margin:auto;
+padding:30px;
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+text-align:center;
 }
-.card:hover{transform:translateY(-10px);}
-.card-icon{
- font-size:2.5rem;
- color:var(--secondary);
- margin-bottom:14px;
+body.dark .calculator-box{background:#0f172a;}
+
+.calculator-box input{
+width:100%;
+padding:14px;
+margin:15px 0;
+border-radius:10px;
+border:1px solid #cbd5e1;
+font-size:1.05rem;
 }
 
-.card .mini-btn{
- margin-top:14px;
- width:100%;
- text-align:center;
+.result-box{
+margin-top:15px;
+font-size:1.3rem;
+font-weight:800;
+color:var(--secondary);
 }
 
-.calculator{
- background:white;
- max-width:680px;
- margin:auto;
- padding:45px;
- border-radius:var(--radius);
- box-shadow:var(--shadow);
- text-align:center;
-}
-.calculator input{
- width:100%;
- padding:16px;
- margin:18px 0;
- border-radius:12px;
- border:1px solid #cbd5e1;
- font-size:1.1rem;
-}
-.result{
- font-size:1.5rem;
- font-weight:900;
- color:var(--secondary);
- margin-top:18px;
+.approval-meter{
+margin-top:10px;
+font-weight:800;
+color:#16a34a;
 }
 
-.float-wa{
- position:fixed;
- bottom:25px;
- right:25px;
- background:#25D366;
- color:white;
- width:62px;
- height:62px;
- border-radius:50%;
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:1.8rem;
- box-shadow:0 12px 30px rgba(0,0,0,0.25);
- z-index:999;
+.trust-strip{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:18px;
+font-size:.9rem;
+color:var(--gray);
 }
 
-footer{
- background:#020617;
- color:white;
- text-align:center;
- padding:45px 20px;
- margin-top:60px;
+/* floating buttons */
+.dark-toggle{
+position:fixed;
+left:20px;
+bottom:25px;
+width:55px;height:55px;
+border-radius:50%;
+background:#020617;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+z-index:999;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
-@media(max-width:768px){
-.hero h1{font-size:2.2rem;}
-.nav-links{display:none;}
+.whatsapp-float{
+position:fixed;
+right:20px;
+bottom:25px;
+width:60px;height:60px;
+border-radius:50%;
+background:#25D366;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.6rem;
+text-decoration:none;
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+z-index:999;
+}
+
+/* popup */
+.lead-popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.65);
+display:flex;
+align-items:center;
+justify-content:center;
+visibility:hidden;
+opacity:0;
+transition:.35s;
+z-index:2000;
+}
+.lead-popup.show{visibility:visible;opacity:1;}
+
+.lead-box{
+background:white;
+padding:35px;
+border-radius:20px;
+max-width:420px;
+text-align:center;
+box-shadow:0 25px 60px rgba(0,0,0,.25);
+}
+.lead-box input{
+width:100%;
+padding:14px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #cbd5e1;
 }
 </style>
 </head>
 
 <body>
 
+<div class="urgency-bar">
+⚡ High demand from students this week — limited cash slots available
+</div>
+
 <header>
 <div class="container">
 <nav class="navbar">
-<a class="logo"><i class="fas fa-bolt"></i> AllServe Traders</a>
+<a href="#" class="logo"><i class="fas fa-bolt"></i>AllServe Traders</a>
 <div class="nav-links">
 <a href="#">Home</a>
 <a href="#services">Services</a>
-<a href="#calculator">Loan Calculator</a>
+<a href="#contact">Contact</a>
 </div>
-<a class="btn btn-whatsapp" href="https://wa.me/27737252514">
+<a href="https://wa.me/27737252514" class="btn btn-whatsapp">
 <i class="fab fa-whatsapp"></i> WhatsApp
 </a>
 </nav>
@@ -216,23 +275,19 @@ footer{
 
 <section class="hero">
 <div class="container">
-<div class="badge">Trusted by Students</div>
-<h1>Smart Student Services.<br>Fast Cash When You Need It.</h1>
-<p>
-Cash loans, cash back, PPE, vouchers, electronics, repairs and custom services —
-built specifically for the student lifestyle.
-</p>
+<h1>Reliable PPE, Electronics & Cash Services for Students</h1>
+<p>Fast. Transparent. Student-focused solutions.</p>
 
-<div class="stats">
-<div class="stat">
+<div class="hero-stats">
+<div class="stat-box">
 <div class="stat-number">⅓</div>
 <div>of a decade doing business with students</div>
 </div>
-<div class="stat">
+<div class="stat-box">
 <div class="stat-number">500+</div>
 <div>Happy Customers</div>
 </div>
-<div class="stat">
+<div class="stat-box">
 <div class="stat-number">7</div>
 <div>Core Services</div>
 </div>
@@ -240,136 +295,176 @@ built specifically for the student lifestyle.
 </div>
 </section>
 
+<!-- SERVICES -->
 <section class="section" id="services">
 <div class="container">
 <h2 class="section-title">Our Services</h2>
 
-<div class="services">
+<div class="services-grid">
 
 <!-- 1 -->
-<div class="card">
-<div class="card-icon"><i class="fas fa-money-bill-wave"></i></div>
+<div class="service-card">
+<div class="service-icon"><i class="fas fa-money-bill-wave"></i></div>
+<div class="service-content">
 <h3>Cash Back & Cash Loans</h3>
-<p>Instant withdrawals and short-term student loans with transparent fees.</p>
-<a class="btn mini-btn btn-whatsapp"
-href="https://wa.me/27737252514?text=Hello%20I%20need%20cash%20services">
-<i class="fab fa-whatsapp"></i> Get Help
-</a>
+<p>Instant withdrawals and short-term loans with transparent fees.</p>
+<a href="https://wa.me/27737252514?text=Hello!%20I%20need%20cash%20services" class="btn" style="width:100%;">Get Cash</a>
+</div>
 </div>
 
 <!-- 2 -->
-<div class="card">
-<div class="card-icon"><i class="fas fa-hard-hat"></i></div>
+<div class="service-card">
+<div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+<div class="service-content">
 <h3>PPE Supply</h3>
-<p>Quality safety gear: gloves, masks, footwear and reflective wear.</p>
-<a class="btn mini-btn btn-whatsapp"
-href="https://wa.me/27737252514?text=Hello%20I%20want%20PPE">
-<i class="fab fa-whatsapp"></i> Order PPE
-</a>
+<p>Gloves, masks, safety wear and more.</p>
+<a href="https://wa.me/27737252514?text=Hello!%20I%20want%20PPE" class="btn" style="width:100%;">Shop PPE</a>
+</div>
 </div>
 
 <!-- 3 -->
-<div class="card">
-<div class="card-icon"><i class="fas fa-sim-card"></i></div>
-<h3>Airtime & Digital Vouchers</h3>
-<p>Buy airtime, data, electricity and digital vouchers instantly.</p>
-<a class="btn mini-btn btn-whatsapp"
-href="https://wa.me/27737252514?text=Hello%20I%20want%20airtime">
-<i class="fab fa-whatsapp"></i> Buy Now
-</a>
+<div class="service-card">
+<div class="service-icon"><i class="fas fa-sim-card"></i></div>
+<div class="service-content">
+<h3>Airtime & Vouchers</h3>
+<p>Buy airtime, data and electricity instantly.</p>
+<a href="https://wa.me/27737252514?text=Hello!%20I%20want%20airtime" class="btn" style="width:100%;">Buy Now</a>
+</div>
 </div>
 
 <!-- 4 -->
-<div class="card">
-<div class="card-icon"><i class="fas fa-shoe-prints"></i></div>
+<div class="service-card">
+<div class="service-icon"><i class="fas fa-shoe-prints"></i></div>
+<div class="service-content">
 <h3>Custom Shoe Sewing</h3>
-<p>Hand-crafted custom footwear designed for comfort and durability.</p>
-<a class="btn mini-btn btn-whatsapp"
-href="https://wa.me/27737252514?text=Hello%20I%20want%20custom%20shoes">
-<i class="fab fa-whatsapp"></i> Order
-</a>
+<p>Hand-crafted footwear built for durability.</p>
+<a href="https://wa.me/27737252514?text=Hello!%20I%20want%20custom%20shoes" class="btn" style="width:100%;">Order</a>
+</div>
 </div>
 
 <!-- 5 -->
-<div class="card">
-<div class="card-icon"><i class="fas fa-tools"></i></div>
+<div class="service-card">
+<div class="service-icon"><i class="fas fa-tools"></i></div>
+<div class="service-content">
 <h3>Electronics Repair</h3>
-<p>Professional repair for phones, LCDs, batteries and laptops.</p>
-<a class="btn mini-btn btn-whatsapp"
-href="https://wa.me/27737252514?text=Hello%20I%20need%20repairs">
-<i class="fab fa-whatsapp"></i> Request Repair
-</a>
+<p>Phones and laptops fixed professionally.</p>
+<a href="https://wa.me/27737252514?text=Hello!%20I%20need%20repairs" class="btn" style="width:100%;">Request Repair</a>
+</div>
 </div>
 
 <!-- 6 -->
-<div class="card">
-<div class="card-icon"><i class="fas fa-code"></i></div>
+<div class="service-card">
+<div class="service-icon"><i class="fas fa-code"></i></div>
+<div class="service-content">
 <h3>Website Design</h3>
-<p>Modern responsive websites tailored for businesses and students.</p>
-<a class="btn mini-btn btn-whatsapp"
-href="https://wa.me/27737252514?text=Hello%20I%20want%20a%20website">
-<i class="fab fa-whatsapp"></i> Get Quote
-</a>
+<p>Professional responsive websites.</p>
+<a href="https://wa.me/27737252514?text=Hello!%20I%20need%20a%20website" class="btn" style="width:100%;">Get Quote</a>
+</div>
 </div>
 
 <!-- 7 -->
-<div class="card">
-<div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-<h3>Electronics & LED Decor</h3>
-<p>Extension cords, chargers, adapters and aesthetic LED lighting.</p>
-<a class="btn mini-btn btn-whatsapp"
-href="https://wa.me/27737252514?text=Hello%20I%20want%20LED%20products">
-<i class="fab fa-whatsapp"></i> Shop
-</a>
+<div class="service-card">
+<div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+<div class="service-content">
+<h3>Basic Electronics & LED</h3>
+<p>Chargers, cables, LEDs and accessories.</p>
+<a href="https://wa.me/27737252514?text=Hello!%20I%20want%20electronics" class="btn" style="width:100%;">Shop</a>
+</div>
 </div>
 
 </div>
 </div>
 </section>
 
-<section class="section" id="calculator">
+<!-- CALCULATOR -->
+<section class="section">
 <div class="container">
-<h2 class="section-title">14-Day Loan Calculator</h2>
+<h2 class="section-title">Loan Repayment Calculator</h2>
 
-<div class="calculator">
-<input type="number" id="loanAmount" placeholder="Enter amount to borrow (R)">
-<a class="btn" onclick="calcLoan()">
+<div class="calculator-box">
+<input type="number" id="loanAmount" placeholder="Enter amount in R">
+
+<button class="btn" onclick="calcLoan()">
 Calculate the amount you'll have to pay within 14 days
-</a>
-<div id="result" class="result"></div>
-<div id="waAfter"></div>
+</button>
+
+<div id="result" class="result-box"></div>
+<div id="approvalMeter" class="approval-meter"></div>
+<div id="whatsappBtn" style="margin-top:18px;"></div>
+
+<div class="trust-strip">
+<span>✔ Student Friendly</span>
+<span>✔ Transparent Fees</span>
+<span>✔ Fast Response</span>
+</div>
 </div>
 </div>
 </section>
 
-<a class="float-wa" href="https://wa.me/27737252514">
+<!-- FLOATING BUTTONS -->
+<div class="dark-toggle" onclick="toggleDark()">
+<i class="fas fa-moon"></i>
+</div>
+
+<a class="whatsapp-float" href="https://wa.me/27737252514">
 <i class="fab fa-whatsapp"></i>
 </a>
 
-<footer>
-© 2026 AllServe Traders — Built for Students
-</footer>
+<!-- POPUP -->
+<div class="lead-popup" id="leadPopup">
+<div class="lead-box">
+<h3>🎓 Student Priority Access</h3>
+<p>Enter your name to get faster service.</p>
+<input type="text" id="leadName" placeholder="Your name">
+<a class="btn btn-whatsapp" onclick="sendLead()">
+<i class="fab fa-whatsapp"></i> Continue
+</a>
+</div>
+</div>
 
 <script>
+function toggleDark(){
+document.body.classList.toggle("dark");
+}
+
 function calcLoan(){
 let amount=parseFloat(document.getElementById("loanAmount").value);
 if(!amount||amount<=0)return;
 
 let rate=amount<600?0.35:0.29;
-let repay=amount+(amount*rate);
+let repayment=amount+(amount*rate);
 
 document.getElementById("result").innerHTML=
-"You will repay: R"+repay.toFixed(2);
+"You will pay back: R"+repayment.toFixed(2);
+
+let approval="High";
+if(amount>1500)approval="Medium";
+if(amount>3000)approval="Manual Review";
+
+document.getElementById("approvalMeter").innerHTML=
+"Approval likelihood: "+approval;
 
 let msg=encodeURIComponent(
-`Hello AllServe Traders, I want to borrow R${amount}. I will repay R${repay.toFixed(2)} in 14 days.`
+`Hello AllServe Traders, I want to borrow R${amount}. I will repay R${repayment.toFixed(2)} in 14 days.`
 );
 
-document.getElementById("waAfter").innerHTML=
-`<a class="btn btn-whatsapp" style="margin-top:20px"
-href="https://wa.me/27737252514?text=${msg}">
-<i class="fab fa-whatsapp"></i> Continue on WhatsApp
+document.getElementById("whatsappBtn").innerHTML=
+`<a class="btn btn-whatsapp" href="https://wa.me/27737252514?text=${msg}">
+<i class="fab fa-whatsapp"></i> Proceed on WhatsApp
 </a>`;
+}
+
+/* popup delay */
+setTimeout(()=>{
+document.getElementById("leadPopup").classList.add("show");
+},12000);
+
+function sendLead(){
+let name=document.getElementById("leadName").value||"Student";
+let msg=encodeURIComponent(
+`Hello AllServe Traders, my name is ${name} and I want priority assistance.`
+);
+window.location.href=`https://wa.me/27737252514?text=${msg}`;
 }
 </script>
 

@@ -8,199 +8,189 @@
 
 <style>
 :root{
-    --primary:#0f766e;
-    --secondary:#16a34a;
-    --accent:#22c55e;
-    --dark:#0f172a;
-    --light:#f8fafc;
-    --card:#ffffff;
-    --radius:16px;
-    --shadow:0 15px 40px rgba(0,0,0,0.08);
+ --primary:#0f766e;
+ --secondary:#16a34a;
+ --accent:#22c55e;
+ --dark:#020617;
+ --light:#f8fafc;
+ --card:#ffffff;
+ --radius:18px;
+ --shadow:0 18px 45px rgba(0,0,0,0.08);
 }
 
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui;}
 body{background:var(--light);color:var(--dark);line-height:1.6;}
 .container{max-width:1200px;margin:auto;padding:0 20px;}
-.section{padding:90px 0;}
+.section{padding:100px 0;}
 
-/* NAVBAR */
 header{
-    background:white;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+ background:white;
+ position:sticky;
+ top:0;
+ z-index:1000;
+ box-shadow:0 6px 25px rgba(0,0,0,0.05);
 }
 .navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 0;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:18px 0;
 }
 .logo{
-    font-weight:900;
-    font-size:1.6rem;
-    color:var(--primary);
-    display:flex;
-    align-items:center;
-    gap:10px;
-    text-decoration:none;
+ font-weight:900;
+ font-size:1.6rem;
+ color:var(--primary);
+ display:flex;
+ align-items:center;
+ gap:10px;
+ text-decoration:none;
 }
 .logo i{
-    background:linear-gradient(135deg,#22c55e,#16a34a);
-    color:white;
-    padding:10px;
-    border-radius:12px;
+ background:linear-gradient(135deg,#22c55e,#16a34a);
+ color:white;
+ padding:10px;
+ border-radius:14px;
 }
-.nav-links{
-    display:flex;
-    gap:30px;
-}
-.nav-links a{
-    text-decoration:none;
-    color:var(--dark);
-    font-weight:600;
-}
+
+.nav-links{display:flex;gap:28px;}
+.nav-links a{text-decoration:none;color:var(--dark);font-weight:600;}
+
 .btn{
-    background:var(--primary);
-    color:white;
-    padding:12px 26px;
-    border-radius:999px;
-    text-decoration:none;
-    font-weight:700;
-    transition:.25s;
+ background:var(--primary);
+ color:white;
+ padding:13px 28px;
+ border-radius:999px;
+ text-decoration:none;
+ font-weight:700;
+ transition:.25s;
+ display:inline-block;
 }
 .btn:hover{transform:translateY(-2px);}
 .btn-whatsapp{background:#25D366;}
 
-/* HERO */
 .hero{
-    background:linear-gradient(135deg,#ecfeff,#dcfce7);
-    text-align:center;
-    padding:120px 0 100px;
+ background:linear-gradient(135deg,#ecfeff,#dcfce7);
+ text-align:center;
+ padding:130px 0 110px;
 }
-.hero h1{
-    font-size:3.2rem;
-    margin-bottom:20px;
-}
-.hero p{
-    max-width:720px;
-    margin:auto;
-    color:#475569;
-    font-size:1.2rem;
-}
-.hero-badge{
-    display:inline-block;
-    background:#dcfce7;
-    color:#166534;
-    padding:8px 18px;
-    border-radius:999px;
-    font-weight:700;
-    margin-bottom:25px;
+.hero h1{font-size:3.1rem;margin-bottom:20px;}
+.hero p{max-width:720px;margin:auto;color:#475569;font-size:1.15rem;}
+
+.badge{
+ display:inline-block;
+ background:#dcfce7;
+ color:#166534;
+ padding:8px 18px;
+ border-radius:999px;
+ font-weight:700;
+ margin-bottom:25px;
 }
 
-/* STATS */
 .stats{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    margin-top:50px;
-    flex-wrap:wrap;
+ display:flex;
+ justify-content:center;
+ gap:40px;
+ margin-top:55px;
+ flex-wrap:wrap;
 }
 .stat{
-    background:white;
-    padding:28px;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    min-width:180px;
+ background:white;
+ padding:28px;
+ border-radius:var(--radius);
+ box-shadow:var(--shadow);
+ min-width:180px;
 }
 .stat-number{
-    font-size:2.4rem;
-    font-weight:900;
-    color:var(--secondary);
+ font-size:2.4rem;
+ font-weight:900;
+ color:var(--secondary);
 }
 
-/* SERVICES */
 .section-title{
-    text-align:center;
-    font-size:2.4rem;
-    margin-bottom:50px;
-}
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
-.card{
-    background:var(--card);
-    border-radius:var(--radius);
-    padding:30px;
-    box-shadow:var(--shadow);
-    transition:.3s;
-}
-.card:hover{transform:translateY(-8px);}
-.card-icon{
-    font-size:2.6rem;
-    color:var(--secondary);
-    margin-bottom:15px;
+ text-align:center;
+ font-size:2.4rem;
+ margin-bottom:55px;
 }
 
-/* CALCULATOR */
+.services{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:28px;
+}
+
+.card{
+ background:var(--card);
+ border-radius:var(--radius);
+ padding:28px;
+ box-shadow:var(--shadow);
+ transition:.35s;
+ position:relative;
+ overflow:hidden;
+}
+.card:hover{transform:translateY(-10px);}
+.card-icon{
+ font-size:2.5rem;
+ color:var(--secondary);
+ margin-bottom:14px;
+}
+
+.card .mini-btn{
+ margin-top:14px;
+ width:100%;
+ text-align:center;
+}
+
 .calculator{
-    background:white;
-    max-width:650px;
-    margin:auto;
-    padding:40px;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    text-align:center;
+ background:white;
+ max-width:680px;
+ margin:auto;
+ padding:45px;
+ border-radius:var(--radius);
+ box-shadow:var(--shadow);
+ text-align:center;
 }
 .calculator input{
-    width:100%;
-    padding:16px;
-    margin:18px 0;
-    border-radius:12px;
-    border:1px solid #cbd5e1;
-    font-size:1.1rem;
+ width:100%;
+ padding:16px;
+ margin:18px 0;
+ border-radius:12px;
+ border:1px solid #cbd5e1;
+ font-size:1.1rem;
 }
 .result{
-    font-size:1.4rem;
-    font-weight:900;
-    color:var(--secondary);
-    margin-top:15px;
+ font-size:1.5rem;
+ font-weight:900;
+ color:var(--secondary);
+ margin-top:18px;
 }
 
-/* FLOATING WHATSAPP */
 .float-wa{
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    background:#25D366;
-    color:white;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:1.8rem;
-    box-shadow:0 10px 25px rgba(0,0,0,0.25);
-    z-index:999;
+ position:fixed;
+ bottom:25px;
+ right:25px;
+ background:#25D366;
+ color:white;
+ width:62px;
+ height:62px;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:1.8rem;
+ box-shadow:0 12px 30px rgba(0,0,0,0.25);
+ z-index:999;
 }
 
-/* FOOTER */
 footer{
-    background:#020617;
-    color:white;
-    text-align:center;
-    padding:40px 20px;
-    margin-top:60px;
+ background:#020617;
+ color:white;
+ text-align:center;
+ padding:45px 20px;
+ margin-top:60px;
 }
 
-/* MOBILE */
 @media(max-width:768px){
-.hero h1{font-size:2.3rem;}
+.hero h1{font-size:2.2rem;}
 .nav-links{display:none;}
 }
 </style>
@@ -208,11 +198,10 @@ footer{
 
 <body>
 
-<!-- NAV -->
 <header>
 <div class="container">
 <nav class="navbar">
-<a class="logo" href="#"><i class="fas fa-bolt"></i> AllServe Traders</a>
+<a class="logo"><i class="fas fa-bolt"></i> AllServe Traders</a>
 <div class="nav-links">
 <a href="#">Home</a>
 <a href="#services">Services</a>
@@ -225,17 +214,13 @@ footer{
 </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
 <div class="container">
-
-<div class="hero-badge">Trusted by Students</div>
-
-<h1>Fast Cash, Smart Services,<br>Built for Students</h1>
-
+<div class="badge">Trusted by Students</div>
+<h1>Smart Student Services.<br>Fast Cash When You Need It.</h1>
 <p>
-Cash loans, cash back, PPE, electronics, repairs and digital services —
-all in one reliable student-focused hub.
+Cash loans, cash back, PPE, vouchers, electronics, repairs and custom services —
+built specifically for the student lifestyle.
 </p>
 
 <div class="stats">
@@ -248,63 +233,115 @@ all in one reliable student-focused hub.
 <div>Happy Customers</div>
 </div>
 <div class="stat">
-<div class="stat-number">24h</div>
-<div>Fast Response</div>
+<div class="stat-number">7</div>
+<div>Core Services</div>
 </div>
 </div>
-
 </div>
 </section>
 
-<!-- SERVICES -->
 <section class="section" id="services">
 <div class="container">
 <h2 class="section-title">Our Services</h2>
 
 <div class="services">
 
+<!-- 1 -->
 <div class="card">
 <div class="card-icon"><i class="fas fa-money-bill-wave"></i></div>
 <h3>Cash Back & Cash Loans</h3>
 <p>Instant withdrawals and short-term student loans with transparent fees.</p>
+<a class="btn mini-btn btn-whatsapp"
+href="https://wa.me/27737252514?text=Hello%20I%20need%20cash%20services">
+<i class="fab fa-whatsapp"></i> Get Help
+</a>
 </div>
 
+<!-- 2 -->
 <div class="card">
 <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
 <h3>PPE Supply</h3>
-<p>Quality safety gear ready when you need it.</p>
+<p>Quality safety gear: gloves, masks, footwear and reflective wear.</p>
+<a class="btn mini-btn btn-whatsapp"
+href="https://wa.me/27737252514?text=Hello%20I%20want%20PPE">
+<i class="fab fa-whatsapp"></i> Order PPE
+</a>
 </div>
 
+<!-- 3 -->
+<div class="card">
+<div class="card-icon"><i class="fas fa-sim-card"></i></div>
+<h3>Airtime & Digital Vouchers</h3>
+<p>Buy airtime, data, electricity and digital vouchers instantly.</p>
+<a class="btn mini-btn btn-whatsapp"
+href="https://wa.me/27737252514?text=Hello%20I%20want%20airtime">
+<i class="fab fa-whatsapp"></i> Buy Now
+</a>
+</div>
+
+<!-- 4 -->
+<div class="card">
+<div class="card-icon"><i class="fas fa-shoe-prints"></i></div>
+<h3>Custom Shoe Sewing</h3>
+<p>Hand-crafted custom footwear designed for comfort and durability.</p>
+<a class="btn mini-btn btn-whatsapp"
+href="https://wa.me/27737252514?text=Hello%20I%20want%20custom%20shoes">
+<i class="fab fa-whatsapp"></i> Order
+</a>
+</div>
+
+<!-- 5 -->
 <div class="card">
 <div class="card-icon"><i class="fas fa-tools"></i></div>
 <h3>Electronics Repair</h3>
-<p>Phones, laptops and accessories fixed professionally.</p>
+<p>Professional repair for phones, LCDs, batteries and laptops.</p>
+<a class="btn mini-btn btn-whatsapp"
+href="https://wa.me/27737252514?text=Hello%20I%20need%20repairs">
+<i class="fab fa-whatsapp"></i> Request Repair
+</a>
+</div>
+
+<!-- 6 -->
+<div class="card">
+<div class="card-icon"><i class="fas fa-code"></i></div>
+<h3>Website Design</h3>
+<p>Modern responsive websites tailored for businesses and students.</p>
+<a class="btn mini-btn btn-whatsapp"
+href="https://wa.me/27737252514?text=Hello%20I%20want%20a%20website">
+<i class="fab fa-whatsapp"></i> Get Quote
+</a>
+</div>
+
+<!-- 7 -->
+<div class="card">
+<div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+<h3>Electronics & LED Decor</h3>
+<p>Extension cords, chargers, adapters and aesthetic LED lighting.</p>
+<a class="btn mini-btn btn-whatsapp"
+href="https://wa.me/27737252514?text=Hello%20I%20want%20LED%20products">
+<i class="fab fa-whatsapp"></i> Shop
+</a>
 </div>
 
 </div>
 </div>
 </section>
 
-<!-- CALCULATOR -->
 <section class="section" id="calculator">
 <div class="container">
-
 <h2 class="section-title">14-Day Loan Calculator</h2>
 
 <div class="calculator">
-
-<input type="number" id="loanAmount" placeholder="Enter amount you want to borrow (R)">
-
-<a class="btn" onclick="calcLoan()">Calculate the amount you'll have to pay within 14 days</a>
-
+<input type="number" id="loanAmount" placeholder="Enter amount to borrow (R)">
+<a class="btn" onclick="calcLoan()">
+Calculate the amount you'll have to pay within 14 days
+</a>
 <div id="result" class="result"></div>
 <div id="waAfter"></div>
-
 </div>
 </div>
 </section>
 
-<!-- FLOAT WHATSAPP -->
 <a class="float-wa" href="https://wa.me/27737252514">
 <i class="fab fa-whatsapp"></i>
 </a>
@@ -329,7 +366,7 @@ let msg=encodeURIComponent(
 );
 
 document.getElementById("waAfter").innerHTML=
-`<a class="btn btn-whatsapp" style="margin-top:20px;display:inline-block"
+`<a class="btn btn-whatsapp" style="margin-top:20px"
 href="https://wa.me/27737252514?text=${msg}">
 <i class="fab fa-whatsapp"></i> Continue on WhatsApp
 </a>`;

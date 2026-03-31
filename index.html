@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllServe Traders – student hub</title>
+<title>AllServe Traders – student hub | Loan Calculator</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   * {
@@ -112,6 +112,10 @@
     text-decoration: none;
     color: inherit;
     font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover {
+    color: var(--primary);
   }
 
   .btn {
@@ -220,7 +224,7 @@
   /* calculator */
   .calculator-box {
     background: white;
-    max-width: 620px;
+    max-width: 680px;
     margin: auto;
     padding: 35px 30px;
     border-radius: var(--radius);
@@ -249,7 +253,47 @@
     color: white;
   }
 
-  /* rate info strip – shows % clearly */
+  /* period toggle */
+  .period-selector {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    background: #eef2ff;
+    padding: 12px;
+    border-radius: 60px;
+    margin-bottom: 15px;
+  }
+  body.dark .period-selector {
+    background: #1e293b;
+  }
+  .period-option {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    padding: 8px 16px;
+    border-radius: 40px;
+    transition: 0.2s;
+    border: 1px solid transparent;
+  }
+  .period-option.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  }
+  body.dark .period-option.active {
+    background: #0f766e;
+    color: white;
+  }
+  .period-option i {
+    font-size: 1.1rem;
+  }
+
+  /* rate info strip – dynamic rate display */
   .rate-info {
     display: flex;
     justify-content: space-around;
@@ -259,6 +303,8 @@
     margin: 10px 0 18px 0;
     font-weight: 600;
     border: 1px solid #bbf7d0;
+    flex-wrap: wrap;
+    gap: 12px;
   }
   body.dark .rate-info {
     background: #0b2f1f;
@@ -274,17 +320,27 @@
     color: #16a34a;
     font-size: 1.2rem;
   }
-  .small-loan { color: #b45309; }   /* <600 */
-  .large-loan { color: #0f766e; }   /* ≥600 */
+  .small-loan { color: #b45309; }
+  .large-loan { color: #0f766e; }
 
   .result-box {
-    margin-top: 15px;
-    font-size: 1.4rem;
+    margin-top: 20px;
+    font-size: 1.5rem;
     font-weight: 800;
     color: var(--secondary);
   }
   body.dark .result-box { color: #86efac; }
 
+  .detail-note {
+    font-size: 0.85rem;
+    background: #f1f5f9;
+    padding: 8px;
+    border-radius: 20px;
+    margin-top: 12px;
+  }
+  body.dark .detail-note {
+    background: #0f2a3a;
+  }
   .approval-meter {
     margin-top: 8px;
     font-weight: 700;
@@ -346,7 +402,7 @@
     z-index: 999;
   }
 
-  /* footer with rights reserved */
+  /* footer */
   .footer {
     background: #0f172a;
     color: #cbd5e1;
@@ -372,7 +428,7 @@
     color: #22c55e;
   }
 
-  /* extra dark mode adjustments */
+  /* extra dark mode */
   body.dark .btn:not(.btn-whatsapp) {
     background: #1e4b4a;
     color: white;
@@ -381,7 +437,7 @@
     background: #128C7E;
   }
 
-  /* contact section – only WhatsApp + Doornfontein */
+  /* contact section */
   #contact {
     scroll-margin-top: 80px;
     background: #f1f5f9;
@@ -428,6 +484,11 @@
     color: #bbf7d0;
   }
   .contact-info i { font-size: 1.5rem; }
+
+  /* smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
 </style>
 </head>
 <body>
@@ -443,6 +504,7 @@
       <div class="nav-links">
         <a href="#">Home</a>
         <a href="#services">Services</a>
+        <a href="#loan-calculator">Loan Calc</a>
         <a href="#contact">Contact</a>
       </div>
       <a href="https://wa.me/27737252514" class="btn btn-whatsapp">
@@ -470,7 +532,6 @@
   <div class="container">
     <h2 class="section-title">Our Services</h2>
     <div class="services-grid">
-      <!-- 1 Cash back & loans -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-money-bill-wave"></i></div>
         <div class="service-content">
@@ -479,7 +540,6 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20need%20cash%20services" class="btn" style="width:100%;">Get Cash</a>
         </div>
       </div>
-      <!-- 2 PPE Supply -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
         <div class="service-content">
@@ -488,7 +548,6 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20PPE" class="btn" style="width:100%;">Shop PPE</a>
         </div>
       </div>
-      <!-- 3 Airtime & Vouchers -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-sim-card"></i></div>
         <div class="service-content">
@@ -497,7 +556,6 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20airtime" class="btn" style="width:100%;">Buy Now</a>
         </div>
       </div>
-      <!-- 4 Custom Shoe Sewing -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-shoe-prints"></i></div>
         <div class="service-content">
@@ -506,7 +564,6 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20want%20custom%20shoes" class="btn" style="width:100%;">Order</a>
         </div>
       </div>
-      <!-- 5 Electronics Repair -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-tools"></i></div>
         <div class="service-content">
@@ -515,7 +572,6 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20need%20repairs" class="btn" style="width:100%;">Request Repair</a>
         </div>
       </div>
-      <!-- 6 Website Design -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-code"></i></div>
         <div class="service-content">
@@ -524,7 +580,6 @@
           <a href="https://wa.me/27737252514?text=Hello!%20I%20need%20a%20website" class="btn" style="width:100%;">Get Quote</a>
         </div>
       </div>
-      <!-- 7 Basic Electronics & LED -->
       <div class="service-card">
         <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
         <div class="service-content">
@@ -537,33 +592,32 @@
   </div>
 </section>
 
-<!-- CONTACT SECTION – WhatsApp + Doornfontein -->
-<section class="section" id="contact">
+<!-- LOAN CALCULATOR SECTION (two modes: 14d / 28d) with exact rates -->
+<section class="section" id="loan-calculator">
   <div class="container">
-    <h2 class="section-title">Visit or WhatsApp — we're in Doornfontein</h2>
-    <div class="contact-info">
-      <a href="https://wa.me/27737252514"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
-      <span class="location-badge"><i class="fas fa-map-pin"></i> Johannesburg, Doornfontein</span>
-    </div>
-  </div>
-</section>
-
-<!-- CALCULATOR with explicit rate display -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Loan Repayment Calculator</h2>
+    <h2 class="section-title">📊 Smart Loan Calculator</h2>
     <div class="calculator-box">
-      
-      <!-- clear rate info block: shows both thresholds with % -->
-      <div class="rate-info">
-        <span class="rate-badge"><i class="fas fa-tag"></i> &lt; R600  <strong class="small-loan">+35%</strong></span>
-        <span class="rate-badge"><i class="fas fa-tag"></i> ≥ R600  <strong class="large-loan">+29%</strong></span>
+      <!-- Period selector: 14 days / 28 days -->
+      <div class="period-selector" id="periodSelector">
+        <div class="period-option active" data-period="14">
+          <i class="fas fa-calendar-week"></i> 14 days loan
+        </div>
+        <div class="period-option" data-period="28">
+          <i class="fas fa-calendar-alt"></i> 28 days loan
+        </div>
+      </div>
+
+      <!-- dynamic rate info block: shows percentages based on active period & threshold -->
+      <div class="rate-info" id="dynamicRateInfo">
+        <span class="rate-badge"><i class="fas fa-charging-station"></i> &lt; R600 → <strong id="rateSmall">35%</strong></span>
+        <span class="rate-badge"><i class="fas fa-chart-line"></i> ≥ R600 → <strong id="rateLarge">29%</strong></span>
       </div>
 
       <input type="number" id="loanAmount" placeholder="Enter amount in R (e.g. 450 or 1200)">
-      <button class="btn" onclick="calcLoan()">Calculate repayment (14 days)</button>
+      <button class="btn" onclick="calculateLoan()" style="margin-top: 8px;">Calculate Repayment</button>
       
       <div id="result" class="result-box"></div>
+      <div id="detailNote" class="detail-note"></div>
       <div id="approvalMeter" class="approval-meter"></div>
       <div id="whatsappBtn" style="margin-top:20px;"></div>
       
@@ -576,7 +630,17 @@
   </div>
 </section>
 
-<!-- FOOTER with rights reserved and 2026 -->
+<!-- CONTACT SECTION -->
+<section class="section" id="contact">
+  <div class="container">
+    <h2 class="section-title">Visit or WhatsApp — we're in Doornfontein</h2>
+    <div class="contact-info">
+      <a href="https://wa.me/27737252514"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+      <span class="location-badge"><i class="fas fa-map-pin"></i> Johannesburg, Doornfontein</span>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container">
     <p><i class="far fa-copyright"></i> <span class="year">2026</span> AllServe Traders — Student Services Hub</p>
@@ -591,6 +655,98 @@
 <a class="whatsapp-float" href="https://wa.me/27737252514"><i class="fab fa-whatsapp"></i></a>
 
 <script>
+  // current active period: "14" or "28"
+  let activePeriod = "14";
+
+  // function to update rate info display based on selected period
+  function updateRateInfoDisplay() {
+    let smallRate, largeRate;
+    if (activePeriod === "14") {
+      smallRate = "35%";
+      largeRate = "29%";
+    } else {
+      smallRate = "45%";
+      largeRate = "40%";
+    }
+    document.getElementById("rateSmall").innerText = smallRate;
+    document.getElementById("rateLarge").innerText = largeRate;
+  }
+
+  // toggle period UI and recalc if amount already exists
+  function setupPeriodSelector() {
+    const options = document.querySelectorAll(".period-option");
+    options.forEach(opt => {
+      opt.addEventListener("click", () => {
+        // remove active class from all
+        options.forEach(o => o.classList.remove("active"));
+        opt.classList.add("active");
+        const period = opt.getAttribute("data-period");
+        activePeriod = period;
+        updateRateInfoDisplay();
+        // if there's any amount entered, auto-recalculate
+        const amountInput = document.getElementById("loanAmount");
+        if (amountInput.value && parseFloat(amountInput.value) > 0) {
+          calculateLoan();
+        } else {
+          // just clear previous results but keep rate info fresh
+          document.getElementById("result").innerHTML = "";
+          document.getElementById("detailNote").innerHTML = "";
+          document.getElementById("approvalMeter").innerHTML = "";
+          document.getElementById("whatsappBtn").innerHTML = "";
+        }
+      });
+    });
+  }
+
+  // get interest rate based on amount and activePeriod (14 or 28 days)
+  function getInterestRate(amount, period) {
+    if (period === "14") {
+      return amount < 600 ? 0.35 : 0.29;
+    } else { // 28 days
+      return amount < 600 ? 0.45 : 0.40;
+    }
+  }
+
+  // calculate and render
+  function calculateLoan() {
+    let amountInput = document.getElementById("loanAmount");
+    let amount = parseFloat(amountInput.value);
+    if (!amount || amount <= 0) {
+      document.getElementById("result").innerHTML = "⚠️ Please enter a valid loan amount (R)";
+      document.getElementById("detailNote").innerHTML = "";
+      document.getElementById("approvalMeter").innerHTML = "";
+      document.getElementById("whatsappBtn").innerHTML = "";
+      return;
+    }
+
+    const rate = getInterestRate(amount, activePeriod);
+    const interestPercent = (rate * 100).toFixed(0);
+    const interestAmount = amount * rate;
+    const totalRepayment = amount + interestAmount;
+
+    // determine threshold description
+    const thresholdText = amount < 600 ? "amount less than R600" : "amount ≥ R600";
+    const periodText = activePeriod === "14" ? "14-day loan" : "28-day loan";
+    
+    let resultHtml = `💰 Repayment (${interestPercent}% interest): <strong>R${totalRepayment.toFixed(2)}</strong>`;
+    document.getElementById("result").innerHTML = resultHtml;
+    document.getElementById("detailNote").innerHTML = `📌 ${periodText} | ${thresholdText} → ${interestPercent}% charged. Principal: R${amount.toFixed(2)} + interest: R${interestAmount.toFixed(2)}`;
+
+    // approval logic (same as original but adapted)
+    let approval = "High";
+    if (amount > 1500) approval = "Medium";
+    if (amount > 3000) approval = "Manual Review";
+    document.getElementById("approvalMeter").innerHTML = "✅ Approval likelihood: " + approval;
+
+    // WhatsApp message with period and interest details
+    let msg = encodeURIComponent(
+      `Hello AllServe Traders, I want to borrow R${amount.toFixed(2)} (${periodText}, ${interestPercent}% rate). I will repay R${totalRepayment.toFixed(2)}. Please assist.`
+    );
+    document.getElementById("whatsappBtn").innerHTML =
+      `<a class="btn btn-whatsapp" href="https://wa.me/27737252514?text=${msg}"><i class="fab fa-whatsapp"></i> Proceed on WhatsApp</a>`;
+  }
+
+  // dark mode toggle
   function toggleDark() {
     document.body.classList.toggle("dark");
     const icon = document.querySelector('#darkToggle i');
@@ -603,40 +759,16 @@
     }
   }
 
-  function calcLoan() {
-    let amount = parseFloat(document.getElementById("loanAmount").value);
-    if (!amount || amount <= 0) {
-      document.getElementById("result").innerHTML = "⚠️ Enter a valid amount";
-      return;
-    }
-    
-    // Determine rate based on amount (<600 = 35%, >=600 = 29%)
-    let rate;
-    if (amount < 600) {
-      rate = 0.35;   // 35%
-    } else {
-      rate = 0.29;   // 29%
-    }
-    
-    let repayment = amount + (amount * rate);
-    
-    // Show result with applied rate
-    document.getElementById("result").innerHTML = 
-      `Repayment (${rate*100}% interest): <strong>R${repayment.toFixed(2)}</strong>`;
-
-    // Approval logic unchanged
-    let approval = "High";
-    if (amount > 1500) approval = "Medium";
-    if (amount > 3000) approval = "Manual Review";
-    document.getElementById("approvalMeter").innerHTML = "Approval likelihood: " + approval;
-
-    let msg = encodeURIComponent(
-      `Hello AllServe Traders, I want to borrow R${amount} (${rate*100}% rate). I will repay R${repayment.toFixed(2)} in 14 days.`
-    );
-    document.getElementById("whatsappBtn").innerHTML =
-      `<a class="btn btn-whatsapp" href="https://wa.me/27737252514?text=${msg}"><i class="fab fa-whatsapp"></i> Proceed on WhatsApp</a>`;
-  }
+  // also initial setup for any dynamic highlighting
+  document.addEventListener("DOMContentLoaded", () => {
+    setupPeriodSelector();
+    updateRateInfoDisplay();
+    // optional: if user presses enter on loan amount field
+    const loanInput = document.getElementById("loanAmount");
+    loanInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") calculateLoan();
+    });
+  });
 </script>
-
 </body>
 </html>

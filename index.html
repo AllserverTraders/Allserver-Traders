@@ -1,495 +1,495 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllServe Traders – student hub | Loan Calculator</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AllServe Traders – student hub | Loan Calculator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
 
-  :root {
-    --primary: #0f766e;
-    --secondary: #16a34a;
-    --accent: #22c55e;
-    --bg-light: #f8fafc;
-    --text-light: #0f172a;
-    --bg-dark: #020617;
-    --text-dark: #e2e8f0;
-    --card-light: #ffffff;
-    --card-dark: #0f172a;
-    --border-light: #cbd5e1;
-    --icon-bg-light: linear-gradient(135deg, #dcfce7, #bbf7d0);
-    --radius: 14px;
-    --shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
-    --transition: 0.25s ease;
-  }
+    :root {
+      --primary: #0f766e;
+      --secondary: #16a34a;
+      --accent: #22c55e;
+      --bg-light: #f8fafc;
+      --text-light: #0f172a;
+      --bg-dark: #020617;
+      --text-dark: #e2e8f0;
+      --card-light: #ffffff;
+      --card-dark: #0f172a;
+      --border-light: #cbd5e1;
+      --icon-bg-light: linear-gradient(135deg, #dcfce7, #bbf7d0);
+      --radius: 14px;
+      --shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+      --transition: 0.25s ease;
+    }
 
-  body {
-    background: var(--bg-light);
-    color: var(--text-light);
-    transition: background-color 0.3s, color 0.2s;
-    line-height: 1.6;
-  }
+    body {
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.2s;
+      line-height: 1.6;
+    }
 
-  body.dark {
-    background: var(--bg-dark);
-    color: var(--text-dark);
-  }
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-  /* urgency bar */
-  .urgency-bar {
-    background: linear-gradient(90deg, #16a34a, #22c55e);
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-  }
-  body.dark .urgency-bar {
-    background: linear-gradient(90deg, #0f7650, #1e8b4c);
-    color: #ffffff;
-  }
+    /* urgency bar */
+    .urgency-bar {
+      background: linear-gradient(90deg, #16a34a, #22c55e);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    body.dark .urgency-bar {
+      background: linear-gradient(90deg, #0f7650, #1e8b4c);
+      color: #ffffff;
+    }
 
-  /* header */
-  header {
-    background: var(--card-light);
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: background 0.3s;
-  }
-  body.dark header {
-    background: var(--card-dark);
-  }
+    /* header */
+    header {
+      background: var(--card-light);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s;
+    }
+    body.dark header {
+      background: var(--card-dark);
+    }
 
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
 
-  .logo {
-    font-weight: 800;
-    font-size: 1.6rem;
-    color: var(--primary);
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    text-decoration: none;
-  }
-  .logo i {
-    background: linear-gradient(135deg, #22c55e, #16a34a);
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  body.dark .logo i {
-    background: linear-gradient(135deg, #2bde73, #1fad4a);
-  }
+    .logo {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--primary);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      text-decoration: none;
+    }
+    .logo i {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    body.dark .logo i {
+      background: linear-gradient(135deg, #2bde73, #1fad4a);
+    }
 
-  .nav-links {
-    display: flex;
-    gap: 28px;
-    flex-wrap: wrap;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: inherit;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover {
-    color: var(--primary);
-  }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
 
-  .btn {
-    padding: 12px 26px;
-    border: none;
-    border-radius: var(--radius);
-    background: var(--primary);
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-  }
-  .btn:hover { transform: translateY(-3px); opacity: 0.92; }
-  .btn-whatsapp { background: #25D366; }
+    .btn {
+      padding: 12px 26px;
+      border: none;
+      border-radius: var(--radius);
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+    .btn:hover { transform: translateY(-3px); opacity: 0.92; }
+    .btn-whatsapp { background: #25D366; }
 
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, #ecfeff, #dcfce7);
-    padding: 90px 0;
-    text-align: center;
-  }
-  body.dark .hero {
-    background: linear-gradient(145deg, #0b1a2a, #0b2f1f);
-    color: #e0f2e9;
-  }
-  body.dark .hero h1,
-  body.dark .hero p {
-    color: #e6f7f0;
-  }
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #ecfeff, #dcfce7);
+      padding: 90px 0;
+      text-align: center;
+    }
+    body.dark .hero {
+      background: linear-gradient(145deg, #0b1a2a, #0b2f1f);
+      color: #e0f2e9;
+    }
+    body.dark .hero h1,
+    body.dark .hero p {
+      color: #e6f7f0;
+    }
 
-  .hero h1 { font-size: 2.8rem; margin-bottom: 18px; }
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-  }
-  .stat-box {
-    background: white;
-    padding: 22px 28px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-  }
-  body.dark .stat-box {
-    background: #132337;
-    color: #e2e8f0;
-    box-shadow: 0 10px 25px -5px rgba(0, 150, 100, 0.2);
-  }
-  .stat-number {
-    font-size: 2.3rem;
-    font-weight: 800;
-    color: var(--secondary);
-  }
-  body.dark .stat-number {
-    color: #4ade80;
-  }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 18px; }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .stat-box {
+      background: white;
+      padding: 22px 28px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    body.dark .stat-box {
+      background: #132337;
+      color: #e2e8f0;
+      box-shadow: 0 10px 25px -5px rgba(0, 150, 100, 0.2);
+    }
+    .stat-number {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--secondary);
+    }
+    body.dark .stat-number {
+      color: #4ade80;
+    }
 
-  /* section */
-  .section { padding: 75px 0; }
-  .section-title {
-    text-align: center;
-    font-size: 2.3rem;
-    margin-bottom: 55px;
-  }
+    /* section */
+    .section { padding: 75px 0; }
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      margin-bottom: 55px;
+    }
 
-  /* services grid */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 28px;
-  }
-  .service-card {
-    background: var(--card-light);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    overflow: hidden;
-  }
-  body.dark .service-card {
-    background: var(--card-dark);
-    box-shadow: 0 12px 28px rgba(0, 30, 30, 0.6);
-  }
-  .service-card:hover { transform: translateY(-7px); }
+    /* services grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 28px;
+    }
+    .service-card {
+      background: var(--card-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      overflow: hidden;
+    }
+    body.dark .service-card {
+      background: var(--card-dark);
+      box-shadow: 0 12px 28px rgba(0, 30, 30, 0.6);
+    }
+    .service-card:hover { transform: translateY(-7px); }
 
-  .service-icon {
-    height: 110px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.7rem;
-    color: #15803d;
-    background: var(--icon-bg-light);
-  }
-  body.dark .service-icon {
-    background: #1c2f3f;
-    color: #86efac;
-  }
+    .service-icon {
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.7rem;
+      color: #15803d;
+      background: var(--icon-bg-light);
+    }
+    body.dark .service-icon {
+      background: #1c2f3f;
+      color: #86efac;
+    }
 
-  .service-content { padding: 24px 18px; }
-  .service-content h3 { margin-bottom: 8px; }
+    .service-content { padding: 24px 18px; }
+    .service-content h3 { margin-bottom: 8px; }
 
-  /* calculator */
-  .calculator-box {
-    background: white;
-    max-width: 680px;
-    margin: auto;
-    padding: 35px 30px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    text-align: center;
-  }
-  body.dark .calculator-box {
-    background: #0f172a;
-    color: #e2e8f0;
-    border: 1px solid #1e293b;
-  }
+    /* calculator */
+    .calculator-box {
+      background: white;
+      max-width: 680px;
+      margin: auto;
+      padding: 35px 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    body.dark .calculator-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border: 1px solid #1e293b;
+    }
 
-  .calculator-box input {
-    width: 100%;
-    padding: 14px 16px;
-    margin: 18px 0;
-    border-radius: 12px;
-    border: 1px solid var(--border-light);
-    font-size: 1.1rem;
-    background: transparent;
-    color: inherit;
-  }
-  body.dark .calculator-box input {
-    background: #0b1120;
-    border-color: #334155;
-    color: white;
-  }
+    .calculator-box input {
+      width: 100%;
+      padding: 14px 16px;
+      margin: 18px 0;
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      font-size: 1.1rem;
+      background: transparent;
+      color: inherit;
+    }
+    body.dark .calculator-box input {
+      background: #0b1120;
+      border-color: #334155;
+      color: white;
+    }
 
-  /* period toggle */
-  .period-selector {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    background: #eef2ff;
-    padding: 12px;
-    border-radius: 60px;
-    margin-bottom: 15px;
-  }
-  body.dark .period-selector {
-    background: #1e293b;
-  }
-  .period-option {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    background: transparent;
-    padding: 8px 16px;
-    border-radius: 40px;
-    transition: 0.2s;
-    border: 1px solid transparent;
-  }
-  .period-option.active {
-    background: var(--primary);
-    color: white;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  }
-  body.dark .period-option.active {
-    background: #0f766e;
-    color: white;
-  }
-  .period-option i {
-    font-size: 1.1rem;
-  }
+    /* period toggle */
+    .period-selector {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      background: #eef2ff;
+      padding: 12px;
+      border-radius: 60px;
+      margin-bottom: 15px;
+    }
+    body.dark .period-selector {
+      background: #1e293b;
+    }
+    .period-option {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      background: transparent;
+      padding: 8px 16px;
+      border-radius: 40px;
+      transition: 0.2s;
+      border: 1px solid transparent;
+    }
+    .period-option.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    body.dark .period-option.active {
+      background: #0f766e;
+      color: white;
+    }
+    .period-option i {
+      font-size: 1.1rem;
+    }
 
-  /* rate info strip – dynamic rate display */
-  .rate-info {
-    display: flex;
-    justify-content: space-around;
-    background: #ecfdf5;
-    padding: 14px 8px;
-    border-radius: 40px;
-    margin: 10px 0 18px 0;
-    font-weight: 600;
-    border: 1px solid #bbf7d0;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  body.dark .rate-info {
-    background: #0b2f1f;
-    border-color: #166534;
-    color: #dcfce7;
-  }
-  .rate-badge {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .rate-badge i {
-    color: #16a34a;
-    font-size: 1.2rem;
-  }
-  .small-loan { color: #b45309; }
-  .large-loan { color: #0f766e; }
+    /* rate info strip – dynamic rate display */
+    .rate-info {
+      display: flex;
+      justify-content: space-around;
+      background: #ecfdf5;
+      padding: 14px 8px;
+      border-radius: 40px;
+      margin: 10px 0 18px 0;
+      font-weight: 600;
+      border: 1px solid #bbf7d0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    body.dark .rate-info {
+      background: #0b2f1f;
+      border-color: #166534;
+      color: #dcfce7;
+    }
+    .rate-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .rate-badge i {
+      color: #16a34a;
+      font-size: 1.2rem;
+    }
+    .small-loan { color: #b45309; }
+    .large-loan { color: #0f766e; }
 
-  .result-box {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--secondary);
-  }
-  body.dark .result-box { color: #86efac; }
+    .result-box {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--secondary);
+    }
+    body.dark .result-box { color: #86efac; }
 
-  .detail-note {
-    font-size: 0.85rem;
-    background: #f1f5f9;
-    padding: 8px;
-    border-radius: 20px;
-    margin-top: 12px;
-  }
-  body.dark .detail-note {
-    background: #0f2a3a;
-  }
-  .approval-meter {
-    margin-top: 8px;
-    font-weight: 700;
-    color: #16a34a;
-  }
-  body.dark .approval-meter { color: #bef264; }
+    .detail-note {
+      font-size: 0.85rem;
+      background: #f1f5f9;
+      padding: 8px;
+      border-radius: 20px;
+      margin-top: 12px;
+    }
+    body.dark .detail-note {
+      background: #0f2a3a;
+    }
+    .approval-meter {
+      margin-top: 8px;
+      font-weight: 700;
+      color: #16a34a;
+    }
+    body.dark .approval-meter { color: #bef264; }
 
-  .trust-strip {
-    display: flex;
-    justify-content: center;
-    gap: 22px;
-    flex-wrap: wrap;
-    margin-top: 22px;
-    font-size: 0.9rem;
-    color: #334155;
-  }
-  body.dark .trust-strip span {
-    color: #9ca3af;
-  }
+    .trust-strip {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      font-size: 0.9rem;
+      color: #334155;
+    }
+    body.dark .trust-strip span {
+      color: #9ca3af;
+    }
 
-  /* floating toggles */
-  .dark-toggle {
-    position: fixed;
-    left: 20px;
-    bottom: 25px;
-    width: 55px; height: 55px;
-    border-radius: 50%;
-    background: #020617;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 999;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    font-size: 1.5rem;
-    transition: 0.2s;
-  }
-  body.dark .dark-toggle {
-    background: #facc15;
-    color: #020617;
-  }
-  .dark-toggle i { pointer-events: none; }
+    /* floating toggles */
+    .dark-toggle {
+      position: fixed;
+      left: 20px;
+      bottom: 25px;
+      width: 55px; height: 55px;
+      border-radius: 50%;
+      background: #020617;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      font-size: 1.5rem;
+      transition: 0.2s;
+    }
+    body.dark .dark-toggle {
+      background: #facc15;
+      color: #020617;
+    }
+    .dark-toggle i { pointer-events: none; }
 
-  .whatsapp-float {
-    position: fixed;
-    right: 20px;
-    bottom: 25px;
-    width: 60px; height: 60px;
-    border-radius: 50%;
-    background: #25D366;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    text-decoration: none;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-    z-index: 999;
-  }
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 25px;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      text-decoration: none;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      z-index: 999;
+    }
 
-  /* footer */
-  .footer {
-    background: #0f172a;
-    color: #cbd5e1;
-    padding: 35px 0 25px;
-    text-align: center;
-    margin-top: 40px;
-  }
-  body.dark .footer {
-    background: #030712;
-    border-top: 1px solid #1e293b;
-  }
-  .footer p {
-    margin: 8px 0;
-    font-size: 1rem;
-  }
-  .footer .rights {
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    color: #94a3b8;
-  }
-  .footer .year {
-    font-weight: 600;
-    color: #22c55e;
-  }
+    /* footer */
+    .footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 35px 0 25px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    body.dark .footer {
+      background: #030712;
+      border-top: 1px solid #1e293b;
+    }
+    .footer p {
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+    .footer .rights {
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: #94a3b8;
+    }
+    .footer .year {
+      font-weight: 600;
+      color: #22c55e;
+    }
 
-  /* extra dark mode */
-  body.dark .btn:not(.btn-whatsapp) {
-    background: #1e4b4a;
-    color: white;
-  }
-  body.dark .btn-whatsapp {
-    background: #128C7E;
-  }
+    /* extra dark mode */
+    body.dark .btn:not(.btn-whatsapp) {
+      background: #1e4b4a;
+      color: white;
+    }
+    body.dark .btn-whatsapp {
+      background: #128C7E;
+    }
 
-  /* contact section */
-  #contact {
-    scroll-margin-top: 80px;
-    background: #f1f5f9;
-    padding: 60px 0;
-  }
-  body.dark #contact {
-    background: #0b1a2a;
-  }
-  .contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    font-size: 1.2rem;
-  }
-  .contact-info a, .contact-info .location-badge {
-    color: var(--primary);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: white;
-    padding: 14px 32px;
-    border-radius: 60px;
-    box-shadow: var(--shadow);
-    transition: 0.2s;
-    font-weight: 500;
-  }
-  body.dark .contact-info a, body.dark .contact-info .location-badge {
-    background: #1e293b;
-    color: #86efac;
-  }
-  .contact-info a:hover {
-    transform: scale(1.05);
-    background: var(--primary);
-    color: white;
-  }
-  .location-badge {
-    cursor: default;
-    background: #e2e8f0;
-  }
-  body.dark .location-badge {
-    background: #0f2a3b;
-    color: #bbf7d0;
-  }
-  .contact-info i { font-size: 1.5rem; }
+    /* contact section */
+    #contact {
+      scroll-margin-top: 80px;
+      background: #f1f5f9;
+      padding: 60px 0;
+    }
+    body.dark #contact {
+      background: #0b1a2a;
+    }
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      font-size: 1.2rem;
+    }
+    .contact-info a, .contact-info .location-badge {
+      color: var(--primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      padding: 14px 32px;
+      border-radius: 60px;
+      box-shadow: var(--shadow);
+      transition: 0.2s;
+      font-weight: 500;
+    }
+    body.dark .contact-info a, body.dark .contact-info .location-badge {
+      background: #1e293b;
+      color: #86efac;
+    }
+    .contact-info a:hover {
+      transform: scale(1.05);
+      background: var(--primary);
+      color: white;
+    }
+    .location-badge {
+      cursor: default;
+      background: #e2e8f0;
+    }
+    body.dark .location-badge {
+      background: #0f2a3b;
+      color: #bbf7d0;
+    }
+    .contact-info i { font-size: 1.5rem; }
 
-  /* smooth scroll */
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
+    /* smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
 
@@ -592,25 +592,25 @@
   </div>
 </section>
 
-<!-- LOAN CALCULATOR SECTION (two modes: 14d / 28d) with exact rates -->
+<!-- LOAN CALCULATOR SECTION (two modes: 15d / 30d) with updated rates -->
 <section class="section" id="loan-calculator">
   <div class="container">
     <h2 class="section-title">📊 Smart Loan Calculator</h2>
     <div class="calculator-box">
-      <!-- Period selector: 14 days / 28 days -->
+      <!-- Period selector: 15 days / 30 days -->
       <div class="period-selector" id="periodSelector">
-        <div class="period-option active" data-period="14">
-          <i class="fas fa-calendar-week"></i> 14 days loan
+        <div class="period-option active" data-period="15">
+          <i class="fas fa-calendar-week"></i> 15 days loan
         </div>
-        <div class="period-option" data-period="28">
-          <i class="fas fa-calendar-alt"></i> 28 days loan
+        <div class="period-option" data-period="30">
+          <i class="fas fa-calendar-alt"></i> 30 days loan
         </div>
       </div>
 
       <!-- dynamic rate info block: shows percentages based on active period & threshold -->
       <div class="rate-info" id="dynamicRateInfo">
-        <span class="rate-badge"><i class="fas fa-charging-station"></i> &lt; R600 → <strong id="rateSmall">35%</strong></span>
-        <span class="rate-badge"><i class="fas fa-chart-line"></i> ≥ R600 → <strong id="rateLarge">29%</strong></span>
+        <span class="rate-badge"><i class="fas fa-charging-station"></i> &lt; R600 → <strong id="rateSmall">42%</strong></span>
+        <span class="rate-badge"><i class="fas fa-chart-line"></i> ≥ R600 → <strong id="rateLarge">38%</strong></span>
       </div>
 
       <input type="number" id="loanAmount" placeholder="Enter amount in R (e.g. 450 or 1200)">
@@ -655,18 +655,18 @@
 <a class="whatsapp-float" href="https://wa.me/27737252514"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-  // current active period: "14" or "28"
-  let activePeriod = "14";
+  // current active period: "15" or "30"
+  let activePeriod = "15";
 
   // function to update rate info display based on selected period
   function updateRateInfoDisplay() {
     let smallRate, largeRate;
-    if (activePeriod === "14") {
-      smallRate = "35%";
-      largeRate = "29%";
-    } else {
-      smallRate = "45%";
-      largeRate = "40%";
+    if (activePeriod === "15") {
+      smallRate = "42%";
+      largeRate = "38%";
+    } else { // 30 days
+      smallRate = "49%";
+      largeRate = "45%";
     }
     document.getElementById("rateSmall").innerText = smallRate;
     document.getElementById("rateLarge").innerText = largeRate;
@@ -698,12 +698,12 @@
     });
   }
 
-  // get interest rate based on amount and activePeriod (14 or 28 days)
+  // get interest rate based on amount and activePeriod (15 or 30 days)
   function getInterestRate(amount, period) {
-    if (period === "14") {
-      return amount < 600 ? 0.35 : 0.29;
-    } else { // 28 days
-      return amount < 600 ? 0.45 : 0.40;
+    if (period === "15") {
+      return amount < 600 ? 0.42 : 0.38;
+    } else { // 30 days
+      return amount < 600 ? 0.49 : 0.45;
     }
   }
 
@@ -726,7 +726,7 @@
 
     // determine threshold description
     const thresholdText = amount < 600 ? "amount less than R600" : "amount ≥ R600";
-    const periodText = activePeriod === "14" ? "14-day loan" : "28-day loan";
+    const periodText = activePeriod === "15" ? "15-day loan" : "30-day loan";
     
     let resultHtml = `💰 Repayment (${interestPercent}% interest): <strong>R${totalRepayment.toFixed(2)}</strong>`;
     document.getElementById("result").innerHTML = resultHtml;
